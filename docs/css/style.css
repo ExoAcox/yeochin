@@ -103,135 +103,142 @@ a:hover {
 .diamond span {
     position: relative;
     display: block;
+    opacity: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #diamond-con {
     width: 500px;
     margin: auto;
 }
-.diamond-anim {
+.diamond-color {
     filter: grayscale(0);
 }
+
+/* ANIMATIONS */
+
 .diamond:nth-child(1) {
-    transform: translate(0, -25%) rotate(45deg);
-    transition: 1s;
+    transform: translate(-1000px);
+    transition: 1s 1s transform, 1s 7s filter;
 }
-.diamond:nth-child(1) span {
-    transform: translate(-60px, -185px) rotate(-45deg);
+.diamond-anim:nth-child(1) {
+    transform: translate(0, -25%) rotate(45deg);
+}
+.diamond:nth-child(1) span.text-anim {
+    animation: sowon 4s ease 13s 2 alternate;
 }
 .diamond:nth-child(2) {
-    transform: translate(-32%, 50%) rotate(45deg);
-    transition: 1s 1s;
+    transform: translate(-1000px);
+    transition: 1s 2s transform, 1s 8s filter;
 }
-.diamond:nth-child(2) span {
-    transform: translate(6px, 24px) rotate(-45deg);
+.diamond-anim:nth-child(2) {
+    transform: translate(-32%, 50%) rotate(45deg);
+}
+.diamond:nth-child(2) span.text-anim {
+    animation: yerin 4s ease 14s 2 alternate;
 }
 .diamond:nth-child(3) {
+    transform: translate(-1000px);
+    transition: 1s 3s transform, 1s 9s filter;
+}
+.diamond-anim:nth-child(3) {
     transform: translate(-139.5%, 200%) rotate(45deg);
-    transition: 1s 2s;
+}
+.diamond:nth-child(3) span.text-anim {
+    animation: eunha 4s ease 15s 2 alternate;
 }
 .diamond:nth-child(4) {
+    transform: translate(-1000px);
+    transition: 1s 4s transform, 1s 10s filter;
+}
+.diamond-anim:nth-child(4) {
     transform: translate(151%, -12%) rotate(45deg);
-    transition: 1s 3s;
+}
+.diamond:nth-child(4) span.text-anim {
+    animation: yuju_sinb 4s ease 16s 2 alternate;
 }
 .diamond:nth-child(5) {
+    transform: translate(-1000px);
+    transition: 1s 5s transform, 1s 11s filter;
+}
+.diamond-anim:nth-child(5) {
     transform: translate(43%, -162%) rotate(45deg);
-    transition: 1s 4s;
-    /* 142 */
+}
+.diamond:nth-child(5) span.text-anim {
+    animation: yuju_sinb 4s ease 17s 2 alternate;
 }
 .diamond:nth-child(6) {
-    transform: translate(10%, -237%) rotate(45deg);
-    transition: 1s 5s;
+    transform: translate(-1000px);
+    transition: 1s 6s transform, 1s 12s filter;
 }
-/* .diamond span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
-} */
+.diamond-anim:nth-child(6) {
+    transform: translate(10%, -237%) rotate(45deg);
+}
+.diamond:nth-child(6) span.text-anim {
+    animation: umji 4s ease 18s 2 alternate;
+}
 
 @keyframes sowon {
     0% {
-    transform: translate(-35px, -212px);
-    opacity: 0;
+    transform: translate(-120px, -125px) rotate(-45deg);
     }
-    20% {
-    transform: translate(85px, -212px);
+    25% {
+    transform: translate(-60px, -185px) rotate(-45deg);
     opacity: 1;
     }
     100% {
-    transform: translate(85px, -212px);
+    transform: translate(-60px, -185px) rotate(-45deg);
     opacity: 1;
     }
 }
 @keyframes yerin {
     0% {
-    transform: translate(-5px, -118px);
-    opacity: 0;
+    transform: translate(66px, -44px) rotate(-45deg);
     }
-    20% {
-    transform: translate(-110px, -118px);
+    25% {
+    transform: translate(6px, 24px) rotate(-45deg);
     opacity: 1;
     }
     100% {
-    transform: translate(-110px, -118px);
+    transform: translate(6px, 24px) rotate(-45deg);
     opacity: 1;
     }
 }
 @keyframes eunha {
     0% {
-    transform: translate(-192px, 70px);
-    opacity: 0;
+    transform: translate(55px, -35px) rotate(-45deg);
     }
-    20% {
-    transform: translate(-32px, 70px);
+    25% {
+    transform: translate(115px, -95px) rotate(-45deg);
     opacity: 1;
     }
     100% {
-    transform: translate(-32px, 70px);
+    transform: translate(115px, -95px) rotate(-45deg);
     opacity: 1;
     }
 }
-@keyframes yuju {
+@keyframes yuju_sinb {
     0% {
-    transform: translate(175px, -80px);
-    opacity: 0;
+    transform: translate(45px, -25px) rotate(-45deg);
     }
-    20% {
-    transform: translate(290px, -80px);
+    25% {
+    transform: translate(105px, -85px) rotate(-45deg);
     opacity: 1;
     }
     100% {
-    transform: translate(290px, -80px);
-    opacity: 1;
-    }
-}
-@keyframes sinb {
-    0% {
-    transform: translate(67px, -273px);
-    opacity: 0;
-    }
-    20% {
-    transform: translate(177px, -273px);
-    opacity: 1;
-    }
-    100% {
-    transform: translate(177px, -273px);
+    transform: translate(105px, -85px) rotate(-45deg);
     opacity: 1;
     }
 }
 @keyframes umji {
     0% {
-    transform: translate(55px, -368px);
-    opacity: 0;
+    transform: translate(-45px, -150px) rotate(-45deg);
     }
     20% {
-    transform: translate(175px, -368px);
+    transform: translate(-105px, -90px) rotate(-45deg);
     opacity: 1;
     }
     100% {
-    transform: translate(175px, -368px);
+    transform: translate(-105px, -90px) rotate(-45deg);
     opacity: 1;
     }
 }
