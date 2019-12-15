@@ -233,7 +233,7 @@ a:hover {
     0% {
     transform: translate(-45px, -150px) rotate(-45deg);
     }
-    20% {
+    25% {
     transform: translate(-105px, -90px) rotate(-45deg);
     opacity: 1;
     }
