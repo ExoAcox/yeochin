@@ -3,8 +3,14 @@
 
 window.addEventListener("load", () => {
 const diamond = document.getElementsByClassName("diamond")
+const text = document.getElementById("diamond-con").querySelectorAll("span")
+console.log(text)
 for (x = 0; x < diamond.length; x++) {
-	diamond[x].classList.add("diamond-anim")
+	diamond[x].classList.add("diamond-anim");
+	diamond[x].classList.add("diamond-color")
+}
+for (x = 0; x < text.length; x++) {
+	text[x].classList.add("text-anim")
 }
 })
 
@@ -43,8 +49,7 @@ const pop = "pop" + i;
 
 // ALBUMS BACKGROUND
 
-const sample = ["coeg", "sog", "fwb", "sfk", "lol", "tan", "rbw", "tmn", "ssm", "tfu", "srs", "fvr", "fll"]
 const albums = document.getElementsByClassName("albums-bg")
 for (x = 1; x <= albums.length; x++) {
-	albums[x].style.backgroundImage = "url(../img/" + sample[x] + ".jpg)"
+	albums[x].style.backgroundImage = "url(../img/albums/" + x + ".jpg)"
 }
