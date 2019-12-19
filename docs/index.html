@@ -77,10 +77,14 @@
         <div class="section">
             <div class="slide">
                 <div class="members-con">
-                    <div id="m-home">
-                        Before we see their stories,<br>
-                        why not to introduce with their first<br>
-                        Let's click any of the name below.
+                    <div id="m-home" class="text-pop-up-top">
+                        Before we see their stories<br>
+                        It's better to get closer about them<br>
+                        In Indonesia, we have a popular proverb:<br><br>
+                        <i>“ Unknown Makes Unloved ”</i><br><br>
+                        
+                        Let's click any of the name below
+                        ( •̀ ω •́ )
                     </div>
                 </div>
             </div>
@@ -279,10 +283,10 @@
                 </div>
             </div>
             <div id="albums-icon">
-                <a href=""><img src="img/cd.png" alt="Album List"></a>
+                <a href="#"><img src="img/cd.png" alt="Album List"></a>
             </div>
             <div id="albums-navbar">
-                <a href=""><img src="" alt="Season of Glass"></a>
+                <a><img alt="Season of Glass"></a>
                 <a><img alt="Flower Bud"></a>
                 <a><img alt="Snowflake"></a>
                 <a><img alt="LOL"></a>
@@ -300,45 +304,65 @@
 
         <div class="section">
             <div class="slide">
-                <div class="awards-con">
-                    On Progress
+                <div id="awards-con">
+                    <div id="awards-home">
+                        <span><i>“We aren't happy because the number is getting higher, we're happy because there are so many people who love us & are interested.”</i></span>
+                        <span>― Umji</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- ABOUT ME -->
 
-        <div class="section">6</div>
+        <div class="section">
+            <div class="slide">
+                <div id="aboutme-con">
+                    <div id="typed-con">
+                        <span id="typed"></span>
+                    </div>
+                    <div id="credit-con">
+                        <div id="credit-head">
+                            <a href="#"><div>
+                                credit to
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <div id="loading">LOADING</div>
 
         <!-- NAVBAR -->
 
     <ul id="navbar">
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#Members">Members</a></li>
-        <li><a href="#Stories">Stories</a></li>
-        <li><a href="#Albums">Albums</a></li>
-        <li><a href="#Awards">Awards</a></li>
-        <li><a href="#About_Me">About Me</a></li>
+        <a href="#Home"><li>Home</li></a>
+        <a href="#Members"><li>Members</li></a>
+        <a href="#Stories"><li>Stories</li></a>
+        <a href="#Albums"><li>Albums</li></a>
+        <a href="#Awards"><li>Awards</li></a>
+        <a href="#About_Me"><li class="typed-clk">About Me</li></a>
     </ul>
 
     <script src="js/fullpage.min.js"></script>
+    <script src="js/typed.js"></script>
+    <script id="typed-on"></script>
     <script src="js/script.js"></script>
     <script>
         new fullpage('#fullpage', {
-        //options here
         autoScrolling:true,
-        scrollHorizontally: true,
-        menu: '#navbar, #mobile',
+        menu: '#navbar, #loading, #mobile',
         lockAnchors: false,
         anchors:['Home', 'Members', 'Stories', 'Albums', 'Awards', 'About_Me'],
+        normalScrollElements: '#albums-navbar',
         navigation: true,
         navigationPosition: 'right',
-        loopBottom: true,
+        controlArrows: false,
+        loopBottom: false,
         loopHorizontal: true
         });
-
-        //methods
         fullpage_api.setAllowScrolling(true);
     </script>
 </body>
