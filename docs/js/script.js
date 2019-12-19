@@ -18,6 +18,9 @@ window.addEventListener("load", () => {
 	for (x = 0; x < text2.length; x++) {
 		text2[x].classList.add("text-anim")
 	}
+
+// ABOUT ME TYPING START
+
 	if (window.location.hash == "#About_Me") {
 		document.getElementById("typed-on").innerHTML = "coeg()"
 		document.getElementById("credit-head").classList.add("credit-show")
@@ -82,10 +85,29 @@ const today = new Date()
 const passed = Math.floor((today - debut) / 8.64e7)
 const year = Math.floor(passed / 365)
 const day = passed % 365
-const final = `${year} years | ${day} days`
-document.getElementById("albums-date").innerHTML = final
+let xDay = 0
+let xYear = 0
+let stop = 0
 
-// ALBUMS ITUNES
+function countdown(cnd) {
+	const zDay = setInterval(() => {
+		if (xDay > 364) {
+			xDay = 0
+			xYear++
+		}
+		if (((365 * year) + day) - ((365 * xYear) + xDay) == cnd[stop][1]) {
+			clearInterval(zDay)
+			stop++
+			if (stop < cnd.length) {
+				countdown(cnd)
+			}
+		}
+		document.getElementById("albums-date").innerHTML = `${xYear} years | ${xDay} days`
+		xDay++
+	}, cnd[stop][0])
+}
+const cnd = [[10, 200], [30, 100], [45, 65], [60, 30], [75, 10], [100, 0]]
+countdown(cnd)
 
 const itunes = document.querySelectorAll("iframe")
 for (x = 0; x < itunes.length; x++) {
@@ -141,7 +163,6 @@ for (x = 0; x < albums.length; x++) {
 	albums[x].setAttribute("href", "#Albums/" + (x + 1));
 	albums2[x].setAttribute("src", "../img/albums/" + (x + 1) + ".jpg")
 }
-
 document.getElementById("albums-icon").addEventListener("mouseover", () => {
 	document.getElementById("albums-navbar").classList.add("navbar-show")
 })
@@ -180,8 +201,7 @@ document.getElementById("navbar").addEventListener("click", event => {
 	if (event.target.className == "typed-clk") {typed(); credit()}
 })
 
-// BECOZ UNKNOWN ERROR, THIS CODE SHOULD PLACE IN BOTTOM
-// BUT THIS CODE IS RUNNING FINE IN BROWSER, STRANGE !!!
+// THIS CODE MUST PLACE IN THE BOTTOM !!!
 // ALBUMS BACKGROUND
 
 const albums_bg = document.getElementsByClassName("albums-bg")
