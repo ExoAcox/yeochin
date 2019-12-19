@@ -5,6 +5,7 @@ window.addEventListener("load", () => {
 	const diamond = document.getElementsByClassName("diamond")
 	const text = document.getElementById("diamond-con").querySelectorAll("span")
 	const text2 = document.getElementById("text-con").querySelectorAll("span")
+	document.getElementById("loading").classList.add("load-off")
 	document.getElementById("navbar").classList.add("navbar-show")
 	document.getElementById("text-con").classList.add("con-fadeout")
 	for (x = 0; x < diamond.length; x++) {
@@ -16,6 +17,13 @@ window.addEventListener("load", () => {
 	}
 	for (x = 0; x < text2.length; x++) {
 		text2[x].classList.add("text-anim")
+	}
+	if (window.location.hash == "#About_Me") {
+		document.getElementById("typed-on").innerHTML = "coeg()"
+		document.getElementById("credit-head").classList.add("credit-show")
+	}
+	if (window.location.hash != "" && window.location.hash != "#Home") {
+		document.getElementById("navbar").style.transition = ".5s .75s"
 	}
 })
 document.getElementsByClassName("diamond")[5].addEventListener("transitionend", () => {
@@ -29,11 +37,17 @@ document.getElementsByClassName("diamond")[5].addEventListener("transitionend", 
 		}, 1000)
 	}, 9000)
 })
+document.getElementById("navbar").addEventListener("transitionend", () => {
+	const diamond = document.getElementsByClassName("diamond")
+	for (x = 0; x < diamond.length; x++) {
+		diamond[x].classList.add("diamond-hov")
+	}
+})
 
 // MEMBERS HOVER
 
 const navbar = document.getElementById("members-navbar")
-navbar.addEventListener("mouseover", function(event) {
+navbar.addEventListener("mouseover", event => {
 const x = event.target.className
 for (i = 0; i < 7; i++) {
 const hover = "hover" + i;
@@ -42,7 +56,7 @@ const pop = "pop" + i;
 		document.getElementById(pop).classList.add("popup")
 	}
 }})
-navbar.addEventListener("mouseout", function(event) {
+navbar.addEventListener("mouseout", event => {
 const x = event.target.className
 for (i = 0; i < 7; i++) {
 const hover = "hover" + i;
@@ -51,7 +65,7 @@ const pop = "pop" + i;
 		document.getElementById(pop).classList.remove("popup")
 	}
 }})
-navbar.addEventListener("click", function(event) {
+navbar.addEventListener("click", event => {
 const x = event.target.className
 for (i = 0; i < 7; i++) {
 const hover = "hover" + i;
@@ -89,7 +103,7 @@ for (x = 0; x < itunes.length; x++) {
 			source = "https://embed.music.apple.com/us/album/gfriend-2nd-mini-album-flower-bud-ep/1305043068?app=music"
 			break;
 		case 2:
-			source = "https://embed.music.apple.com/us/album/snowflake1078127178?app=music"
+			source = "https://embed.music.apple.com/us/album/snowflake/1078127178?app=music"
 			break;
 		case 3:
 			source = "https://embed.music.apple.com/us/album/gfriend-the-1st-album-lol/1133029174?app=music"
@@ -138,11 +152,33 @@ document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 	document.getElementById("albums-navbar").classList.remove("navbar-show")
 })
 
+// ABOUT ME
 
-
-
-
-
+function coeg() {var coeg = new Typed("#typed", {
+	strings: ["KIM SOJUNG", "JUNG YERIN", "JUNG EUNBI", "CHOI YUNA", "HWANG EUNBI", "KIM YEWON", "YEOJA CHINGU", "CREATE WITH LOVE<br>FROM <span class='typed-style'>INDONESIAN</span> BUDDY"],
+	typeSpeed: 80,
+	backSpeed: 80,
+	startDelay: 1000,
+	backDelay: 500,
+	smartBackspace: false,
+	loop: false,
+	onComplete: () => {}
+})}
+function typed() {
+	document.getElementById("typed-on").innerHTML = "coeg()"
+}
+function credit() {
+	document.getElementById("credit-head").classList.add("credit-show")
+}
+document.getElementById("awards-con").addEventListener("wheel", () => {
+	if (window.location.hash == "#About_Me") {typed(); credit()}
+})
+document.addEventListener("keydown", event => {
+	if (window.location.hash == "#Awards" && event.keyCode == 40) {typed(); credit()}
+})
+document.getElementById("navbar").addEventListener("click", event => {
+	if (event.target.className == "typed-clk") {typed(); credit()}
+})
 
 // BECOZ UNKNOWN ERROR, THIS CODE SHOULD PLACE IN BOTTOM
 // BUT THIS CODE IS RUNNING FINE IN BROWSER, STRANGE !!!
