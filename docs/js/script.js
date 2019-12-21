@@ -18,15 +18,15 @@ window.addEventListener("load", () => {
 	for (x = 0; x < text2.length; x++) {
 		text2[x].classList.add("text-anim")
 	}
+	if (window.location.hash != "" && window.location.hash != "#Home") {
+		document.getElementById("navbar").style.transition = ".5s .75s"
+	}
 
 // ABOUT ME TYPING START
 
 	if (window.location.hash == "#About_Me") {
 		document.getElementById("typed-on").innerHTML = "coeg()"
 		document.getElementById("credit-head").classList.add("credit-show")
-	}
-	if (window.location.hash != "" && window.location.hash != "#Home") {
-		document.getElementById("navbar").style.transition = ".5s .75s"
 	}
 })
 document.getElementsByClassName("diamond")[5].addEventListener("transitionend", () => {
@@ -80,7 +80,7 @@ const pop = "pop" + i;
 
 // ALBUMS DATE
 
-const debut = new Date(2015, 0, 15, 2)
+const debut = new Date(2015, 0, 14, 22)
 const today = new Date()
 const passed = Math.floor((today - debut) / 8.64e7)
 const year = Math.floor(passed / 365)
@@ -95,6 +95,11 @@ function countdown(cnd) {
 			xDay = 0
 			xYear++
 		}
+		if (stop == cnd.length - 1) {
+			document.getElementById("albums-date").classList.add("cnd-off")
+			document.getElementById("albums-text").classList.add("cnd-off")
+			document.getElementById("albums-icon").classList.add("anim-on")
+		}
 		if (((365 * year) + day) - ((365 * xYear) + xDay) == cnd[stop][1]) {
 			clearInterval(zDay)
 			stop++
@@ -107,7 +112,14 @@ function countdown(cnd) {
 	}, cnd[stop][0])
 }
 const cnd = [[10, 200], [30, 100], [45, 65], [60, 30], [75, 10], [100, 0]]
-countdown(cnd)
+
+window.addEventListener("load", () => {
+	if (window.location.hash == "#Albums") {
+		setTimeout(() => {
+			countdown(cnd)
+		}, 1000)
+	}
+})
 
 const itunes = document.querySelectorAll("iframe")
 for (x = 0; x < itunes.length; x++) {
@@ -163,6 +175,17 @@ for (x = 0; x < albums.length; x++) {
 	albums[x].setAttribute("href", "#Albums/" + (x + 1));
 	albums2[x].setAttribute("src", "../img/albums/" + (x + 1) + ".jpg")
 }
+const hover = document.getElementsByClassName("hover")
+for (x = 0; x < hover.length; x++) {
+	if (x != 6) {
+		hover[x].innerHTML = hover[x].previousElementSibling.getAttribute("alt")
+	} else {
+		hover[x].innerHTML = `<div id="tftmn">${hover[x].previousElementSibling.getAttribute("alt")}</div>`
+	}
+}
+
+
+
 document.getElementById("albums-icon").addEventListener("mouseover", () => {
 	document.getElementById("albums-navbar").classList.add("navbar-show")
 })
@@ -172,6 +195,8 @@ document.getElementById("albums-navbar").addEventListener("mouseover", () => {
 document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 	document.getElementById("albums-navbar").classList.remove("navbar-show")
 })
+
+
 
 // ABOUT ME
 
