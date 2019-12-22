@@ -1,4 +1,11 @@
 
+
+document.getElementById("navbar").addEventListener("click", (event) => {
+	if (event.target.className == "responsive") {
+		document.querySelector(".responsive").classList.add("navbar-show")
+	}
+})
+
 // HOME ANIMATION
 
 window.addEventListener("load", () => {
@@ -25,7 +32,7 @@ window.addEventListener("load", () => {
 // ABOUT ME TYPING START
 
 	if (window.location.hash == "#About_Me") {
-		document.getElementById("typed-on").innerHTML = "coeg()"
+		document.getElementById("typed-on").innerHTML = "buddy()"
 		document.getElementById("credit-head").classList.add("credit-show")
 	}
 })
@@ -121,7 +128,7 @@ window.addEventListener("load", () => {
 	}
 })
 
-const itunes = document.querySelectorAll("iframe")
+const itunes = document.getElementById("albums-all").querySelectorAll("iframe")
 for (x = 0; x < itunes.length; x++) {
 	itunes[x].setAttribute("allow", "autoplay *; encrypted-media *");
 	itunes[x].setAttribute("frameborder", "0");
@@ -200,7 +207,8 @@ document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 
 // ABOUT ME
 
-function coeg() {var coeg = new Typed("#typed", {
+function buddy() {
+	var coeg = new Typed("#typed", {
 	strings: ["KIM SOJUNG", "JUNG YERIN", "JUNG EUNBI", "CHOI YUNA", "HWANG EUNBI", "KIM YEWON", "YEOJA CHINGU", "CREATE WITH LOVE<br>FROM <span class='typed-style'>INDONESIAN</span> BUDDY"],
 	typeSpeed: 80,
 	backSpeed: 80,
@@ -210,8 +218,19 @@ function coeg() {var coeg = new Typed("#typed", {
 	loop: false,
 	onComplete: () => {}
 })}
+function fans() {
+	var coeg = new Typed("#typed2", {
+	strings: ["STAN TALENT ?", "STAN GFRIEND !"],
+	typeSpeed: 80,
+	backSpeed: 80,
+	startDelay: 1000,
+	backDelay: 500,
+	smartBackspace: true,
+	loop: false,
+	onComplete: () => {}
+})}
 function typed() {
-	document.getElementById("typed-on").innerHTML = "coeg()"
+	document.getElementById("typed-on").innerHTML = "buddy()"
 }
 function credit() {
 	document.getElementById("credit-head").classList.add("credit-show")
@@ -223,8 +242,12 @@ document.addEventListener("keydown", event => {
 	if (window.location.hash == "#Awards" && event.keyCode == 40) {typed(); credit()}
 })
 document.getElementById("navbar").addEventListener("click", event => {
-	if (event.target.className == "typed-clk") {typed(); credit()}
+	if (event.target.className == "aboutme-clk") {typed(); credit()}
 })
+
+// document.addEventListener("wheel", (event) => {
+// 	console.log(event.target)
+// })
 
 // THIS CODE MUST PLACE IN THE BOTTOM !!!
 // ALBUMS BACKGROUND

@@ -190,24 +190,19 @@
             </div>
         </div>
 
-
-
-
-
         <!-- STORIES -->
 
         <div class="section">
             <div class="slide">
                 <div id="story1">
-                    <img src="/img/stories/sofa.jpg" alt="">
-                    <span>Unlike Twice, Red Velvet, Blackpink or other girlgroups who debuted on big agency and have an senior artist who famous in the past.
-                    <br>
-                    GFRIEND debuted from new born agency called `Source Music`. They debut on 15 January 2015 at Music Bank program.
-                    <br>
-                    They just wear an sport school uniform as outfit during their promotion period. In -one- photoshot beside, you can see, they use a broken sofa. I don't know it's for aesthetic aspect or for budget pressing.
-                    <br>
-                    In the fact, CEO of Source Music `Park Ji Sung`, has sell his house to make GFRIEND debut.
-                    </span>
+                    <div>
+                        <img src="/img/stories/sofa.jpg" alt="">
+                        Unlike Twice, Red Velvet, Blackpink or other girlgroups who debuted on big agency and have an senior artist who famous in the past. GFRIEND debuted from new born agency called `Source Music`. They debut on 15 January 2015 at Music Bank program.
+                        <br><br>
+                        They just wear an sport school uniform as outfit during their promotion period. In -one- photoshot beside, you can see, they use a broken sofa. I don't know it's for aesthetic aspect or for budget pressing.
+                        <br>
+                        In the fact, CEO of Source Music `Park Ji Sung`, has sell his house to make GFRIEND debut.
+                    </div>
                 </div>
             </div>
             <div class="slide stories-con">
@@ -222,7 +217,7 @@
 
         <!-- ALBUMS -->
 
-        <div class="section">
+        <div class="section" id="albums-all">
             <div class="slide albums-con">
                 <div class="albums-con">
                     <div class="albums-bg"></div>
@@ -381,8 +376,9 @@
         <a href="#Stories"><li>Stories</li></a>
         <a href="#Albums"><li>Albums</li></a>
         <a href="#Awards"><li>Awards</li></a>
-        <a href="#About_Me"><li class="typed-clk">About Me</li></a>
+        <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
     </ul>
+    <div id="navbar-res"><a href="javascript:void(0)" class="navbar-icon"><img src="/img/cd.png" alt="icon"></<img></a></div>
 
     <script src="js/fullpage.min.js"></script>
     <script src="js/typed.js"></script>
@@ -391,7 +387,7 @@
     <script>
         new fullpage('#fullpage', {
         autoScrolling:true,
-        menu: '#navbar, #loading, #mobile',
+        menu: '#navbar, #loading, #navbar-res',
         lockAnchors: false,
         anchors:['Home', 'Members', 'Stories', 'Albums', 'Awards', 'About_Me'],
         normalScrollElements: '#albums-navbar',
