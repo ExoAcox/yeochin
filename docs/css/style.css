@@ -39,9 +39,9 @@
     margin: 0 10px;
     position: relative;
 }
-/* #navbar.navbar-show {
-    top: 2px;
-} */
+#navbar.navbar-show {
+    top: 0px;
+}
 a {
     text-decoration: none;
     color: white;
@@ -696,30 +696,37 @@ a:hover {
     }
     ul {
         padding-inline-start: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
     }
 }
 @media (max-width: 600px) {
+    ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
     #fp-nav {
         z-index: 50;
     }
     #navbar-bg {
         position: fixed;
         top: 0;
-        left: 0;
+        left: 100%;
         width: 100%;
         height: 100%;
         background-color: salmon;
         z-index: 99;
+        transition: .6s;
     }
-    #navbar {
+    #navbar-bg.navbar-show {
+        left: 0;
+    }
+    #navbar.navbar-show {
+        position: absolute;
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
     }
     #navbar li {
-        margin: 25px 200px;
+        margin: 25px 100px;
     }
     #navbar-res {
         position: fixed;
