@@ -369,15 +369,17 @@
     <div id="loading">LOADING</div>
 
         <!-- NAVBAR -->
-
-    <ul id="navbar">
-        <a href="#Home"><li>Home</li></a>
-        <a href="#Members"><li>Members</li></a>
-        <a href="#Stories"><li>Stories</li></a>
-        <a href="#Albums"><li>Albums</li></a>
-        <a href="#Awards"><li>Awards</li></a>
-        <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
-    </ul>
+    <div id="navbar-bg">
+        <ul id="navbar">
+            <a href="#Home"><li>Home</li></a>
+            <a href="#Members"><li>Members</li></a>
+            <a href="#Stories"><li>Stories</li></a>
+            <a href="#Albums"><li>Albums</li></a>
+            <a href="#Awards"><li>Awards</li></a>
+            <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
+        </ul>
+</div>
+    
     <div id="navbar-res"><a href="javascript:void(0)" class="navbar-icon"><img src="/img/cd.png" alt="icon"></<img></a></div>
 
     <script src="js/fullpage.min.js"></script>
@@ -387,7 +389,7 @@
     <script>
         new fullpage('#fullpage', {
         autoScrolling:true,
-        menu: '#navbar, #loading, #navbar-res',
+        menu: '#navbar-bg, #loading, #navbar-res',
         lockAnchors: false,
         anchors:['Home', 'Members', 'Stories', 'Albums', 'Awards', 'About_Me'],
         normalScrollElements: '#albums-navbar',
