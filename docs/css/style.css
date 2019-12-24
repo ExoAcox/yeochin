@@ -436,28 +436,58 @@ a:hover {
 
 /* --- STORIES --- */
 
-#story1, #story2 {
+#stories-con {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    align-items: center;
-    text-align: left;
+    text-align: center;
     height: 100%;
     font-size: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#story1 div {
-    border-radius: 20px;
-    padding: 20px;
-    background-color: #fff;
-    width: 1000px;
-    margin: auto;
-    color: black;
+#card-con {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    width: 75%;
+    bottom: 7.5%;
+    left: 50%;
+    transform: translate(-50%);
 }
-#story1 img {
-    float: left;
-    margin: 10px 28px 10px 10px;
-    width: 500px
+.card {
+    height: 100px;
+    font-size: 20px;
+    background-color: transparent;
+    line-height: 100px;
+    perspective: 30em;
 }
+.card-flip {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .5s;
+}
+.card-flip .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 7.5px;
+}
+.card-flip .front {
+    background-color: salmon;
+    color: white;
+}
+.card-flip .back {
+    background-color: black;
+    transform: rotateY(180deg);
+}
+.card:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
 
 
 
@@ -473,18 +503,32 @@ a:hover {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
 }
 #albums-main {
+    position: absolute;
     margin: auto;
     width: 1000px;
     font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #albums-date {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     font-size: 75px;
-    transform: translateY(100px);
     transition: .5s 1.5s;
+}
+#albums-dummy {
+    font-size: 50px;
+    opacity: 0;
 }
 #albums-date.cnd-off {
     font-size: 50px;
-    transform: translateY(0);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
 }
 #albums-text {
     opacity: 0;
@@ -493,6 +537,19 @@ a:hover {
 #albums-text.cnd-off {
     opacity: 1;
 }
+
+#albums-slide {
+    width: 100%;
+    height: 100%;
+}
+.slide-con {
+    height: 25%;
+}
+
+
+
+
+
 .albums-con iframe {
     position: absolute;
     top: 50%;
@@ -687,7 +744,7 @@ a:hover {
 
 /* RESPONSIVE NAVBAR */
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     #navbar {
         right: 50%;
         transform: translate(50%);
@@ -696,6 +753,10 @@ a:hover {
     }
     ul {
         padding-inline-start: 0;
+    }
+    #home-img {
+        transform: scale(.8) translate(-15%, 20%);
+        margin: 0;
     }
 }
 @media (max-width: 600px) {
@@ -734,4 +795,4 @@ a:hover {
         right: 15px;
         z-index: 99;
     }
-}
+} */
