@@ -29,6 +29,34 @@ window.addEventListener("load", () => {
 		document.getElementById("navbar").style.transition = ".5s .75s"
 	}
 
+	// BACKGROUND SLIDE
+
+	const slide_bg = document.getElementsByClassName("slide-bg")
+	const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
+	const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
+	for (x = 1; x <= slide_bg.length; x++) {
+		let xBG = ""
+		let count = x
+		for (y = 0; y < xScreen; y++) {
+			for (z = 0; z < 4; z++) {
+				if (count > 4) {count = 1}
+				xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
+				count++
+			}
+		}
+		count = x
+		for (z = 0; z < xxScreen; z++) {
+			if (count > 4) {count = 1}
+			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
+			count++
+		}
+		slide_bg[x - 1].innerHTML = xBG
+	}
+
+
+
+
+
 // ABOUT ME TYPING START
 
 	if (window.location.hash == "#About_Me") {
@@ -85,6 +113,7 @@ const pop = "pop" + i;
 	}
 }})
 
+
 // ALBUMS DATE
 
 const debut = new Date(2015, 0, 14, 22)
@@ -123,7 +152,11 @@ const cnd = [[10, 200], [30, 100], [45, 65], [60, 30], [75, 10], [100, 0]]
 window.addEventListener("load", () => {
 	if (window.location.hash == "#Albums") {
 		setTimeout(() => {
-			countdown(cnd)
+			countdown(cnd);
+			const slide = document.getElementsByClassName("slide-bg")
+			for (x = 0; x < slide.length; x++) {
+			slide[x].classList.add("slide-on")
+			}
 		}, 1000)
 	}
 })
@@ -249,10 +282,20 @@ document.getElementById("navbar").addEventListener("click", event => {
 // 	console.log(event.target)
 // })
 
+// RESPONSIVE
+
+document.getElementById("navbar-res").addEventListener("click", () => {
+	document.getElementById("navbar-bg").classList.toggle("navbar-show")
+})
+document.getElementById("navbar").addEventListener("click", (event) => {
+	
+})
+
+
 // THIS CODE MUST PLACE IN THE BOTTOM !!!
 // ALBUMS BACKGROUND
 
 const albums_bg = document.getElementsByClassName("albums-bg")
-for (x = 1; x <= albums_bg.length; x++) {
-	albums_bg[x].style.backgroundImage = "url(../img/albums/" + x + ".jpg)"
+for (x = 0; x <= albums_bg.length; x++) {
+	albums_bg[x].style.backgroundImage = "url(../img/albums/" + (x + 1) + ".jpg)"
 }

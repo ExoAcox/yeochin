@@ -541,14 +541,28 @@ a:hover {
 #albums-slide {
     width: 100%;
     height: 100%;
+    filter: brightness(.7);
 }
 .slide-con {
     height: 25%;
 }
-
-
-
-
+.slide-bg {
+    position: relative;
+    height: 100%;
+    font-size: 0;
+    left: 0;
+    white-space: nowrap;
+    transition: 32s linear;
+    transform: translate3d(0, 0, 0);
+}
+.slide-bg.slide-on {
+    left: -2656px;
+}
+.slide-bg div {
+    display: inline-block;
+    height: 100%;
+    background-size: cover;
+}
 
 .albums-con iframe {
     position: absolute;
