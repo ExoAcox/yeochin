@@ -135,6 +135,7 @@ function countdown(cnd) {
 			document.getElementById("albums-date").classList.add("cnd-off")
 			document.getElementById("albums-text").classList.add("cnd-off")
 			document.getElementById("albums-icon").classList.add("anim-on")
+			document.getElementById("albums-slide").classList.add("darker")
 		}
 		if (((365 * year) + day) - ((365 * xYear) + xDay) == cnd[stop][1]) {
 			clearInterval(zDay)

@@ -509,6 +509,7 @@ a:hover {
     font-size: 20px;
     top: 50%;
     left: 50%;
+    text-shadow: 5px 5px 5px black;
     transform: translate(-50%, -50%);
 }
 #albums-date {
@@ -532,7 +533,7 @@ a:hover {
 }
 #albums-text {
     opacity: 0;
-    transition: 1s 2.2s;
+    transition: 2s 2.2s;
 }
 #albums-text.cnd-off {
     opacity: 1;
@@ -542,6 +543,10 @@ a:hover {
     width: 100%;
     height: 100%;
     filter: brightness(.7);
+    transition: .5s 1.5s;
+}
+#albums-slide.darker {
+    filter: brightness(.4);
 }
 .slide-con {
     height: 25%;
@@ -552,7 +557,7 @@ a:hover {
     font-size: 0;
     left: 0;
     white-space: nowrap;
-    transition: 32s linear;
+    transition: 27.4s linear;
     transform: translate3d(0, 0, 0);
 }
 .slide-bg.slide-on {
@@ -587,7 +592,7 @@ a:hover {
     left: -240px;
 }
 #albums-icon.anim-on {
-    animation: show 4s 3s linear 1 forwards;
+    animation: show 4s 4s linear 1 forwards;
 }
 #albums-icon span {
     font-size: 30px;
