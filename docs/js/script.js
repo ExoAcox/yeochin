@@ -31,27 +31,27 @@ window.addEventListener("load", () => {
 
 	// BACKGROUND SLIDE
 
-	const slide_bg = document.getElementsByClassName("slide-bg")
-	const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
-	const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
-	for (x = 1; x <= slide_bg.length; x++) {
-		let xBG = ""
-		let count = x
-		for (y = 0; y < xScreen; y++) {
-			for (z = 0; z < 4; z++) {
-				if (count > 4) {count = 1}
-				xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
-				count++
-			}
-		}
-		count = x
-		for (z = 0; z < xxScreen; z++) {
-			if (count > 4) {count = 1}
-			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
-			count++
-		}
-		slide_bg[x - 1].innerHTML = xBG
-	}
+	// const slide_bg = document.getElementsByClassName("slide-bg")
+	// const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
+	// const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
+	// for (x = 1; x <= slide_bg.length; x++) {
+	// 	let xBG = ""
+	// 	let count = x
+	// 	for (y = 0; y < xScreen; y++) {
+	// 		for (z = 0; z < 4; z++) {
+	// 			if (count > 4) {count = 1}
+	// 			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
+	// 			count++
+	// 		}
+	// 	}
+	// 	count = x
+	// 	for (z = 0; z < xxScreen; z++) {
+	// 		if (count > 4) {count = 1}
+	// 		xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
+	// 		count++
+	// 	}
+	// 	slide_bg[x - 1].innerHTML = xBG
+	// }
 
 
 
@@ -87,7 +87,7 @@ document.getElementById("navbar").addEventListener("transitionend", () => {
 const navbar = document.getElementById("members-navbar")
 navbar.addEventListener("mouseover", event => {
 const x = event.target.className
-for (i = 0; i < 7; i++) {
+for (i = 1; i < 7; i++) {
 const hover = "hover" + i;
 const pop = "pop" + i;
 	if (x == hover) {
@@ -96,7 +96,7 @@ const pop = "pop" + i;
 }})
 navbar.addEventListener("mouseout", event => {
 const x = event.target.className
-for (i = 0; i < 7; i++) {
+for (i = 1; i < 7; i++) {
 const hover = "hover" + i;
 const pop = "pop" + i;
 	if (x == hover) {
@@ -105,7 +105,7 @@ const pop = "pop" + i;
 }})
 navbar.addEventListener("click", event => {
 const x = event.target.className
-for (i = 0; i < 7; i++) {
+for (i = 1; i < 7; i++) {
 const hover = "hover" + i;
 const pop = "pop" + i;
 	if (x == hover) {
@@ -113,8 +113,8 @@ const pop = "pop" + i;
 	}
 }})
 
-
-// ALBUMS DATE
+// --- ALBUMS ---
+// ALBUMS DATE ---
 
 const debut = new Date(2015, 0, 14, 22)
 const today = new Date()
@@ -124,6 +124,7 @@ const day = passed % 365
 let xDay = 0
 let xYear = 0
 let stop = 0
+const cnd = [[10, 200], [30, 100], [45, 65], [60, 30], [75, 10], [100, 0]]
 
 function countdown(cnd) {
 	const zDay = setInterval(() => {
@@ -148,7 +149,29 @@ function countdown(cnd) {
 		xDay++
 	}, cnd[stop][0])
 }
-const cnd = [[10, 200], [30, 100], [45, 65], [60, 30], [75, 10], [100, 0]]
+// function albumsSlide() {
+// 	const slide_bg = document.getElementsByClassName("slide-bg")
+// 	const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
+// 	const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
+// 	for (x = 1; x <= slide_bg.length; x++) {
+// 		let xBG = ""
+// 		let count = x
+// 		for (y = 0; y < xScreen; y++) {
+// 			for (z = 0; z < 4; z++) {
+// 				if (count > 4) {count = 1}
+// 				xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
+// 				count++
+// 			}
+// 		}
+// 		count = x
+// 		for (z = 0; z < xxScreen; z++) {
+// 			if (count > 4) {count = 1}
+// 			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
+// 			count++
+// 		}
+// 		slide_bg[x - 1].innerHTML = xBG
+// 	}
+// }
 
 window.addEventListener("load", () => {
 	if (window.location.hash == "#Albums") {
@@ -159,6 +182,42 @@ window.addEventListener("load", () => {
 			slide[x].classList.add("slide-on")
 			}
 		}, 1000)
+	}
+	function albumsSlide() {
+		const slide_bg = document.getElementsByClassName("slide-bg")
+		const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
+		const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
+		for (x = 1; x <= slide_bg.length; x++) {
+			let xBG = ""
+			let count = x
+			for (y = 0; y < xScreen; y++) {
+				for (z = 0; z < 4; z++) {
+					if (count > 4) {count = 1}
+					xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
+					count++
+				}
+			}
+			count = x
+			for (z = 0; z < xxScreen; z++) {
+				if (count > 4) {count = 1}
+				xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
+				count++
+			}
+			slide_bg[x - 1].innerHTML = xBG
+		}
+	}
+	albumsSlide()
+})
+
+document.getElementById("navbar").addEventListener("click", event => {
+	if (event.target.className == "albums-clk") {
+		setTimeout(() => {
+			countdown(cnd);
+			const slide = document.getElementsByClassName("slide-bg")
+			for (x = 0; x < slide.length; x++) {
+			slide[x].classList.add("slide-on")
+			}
+		}, 500)
 	}
 })
 
@@ -225,8 +284,6 @@ for (x = 0; x < hover.length; x++) {
 	}
 }
 
-
-
 document.getElementById("albums-icon").addEventListener("mouseover", () => {
 	document.getElementById("albums-navbar").classList.add("navbar-show")
 })
@@ -236,6 +293,59 @@ document.getElementById("albums-navbar").addEventListener("mouseover", () => {
 document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 	document.getElementById("albums-navbar").classList.remove("navbar-show")
 })
+
+
+// --- STORIES ---
+
+// MENU HOVER ---
+
+document.getElementById("stories-menu").addEventListener("mouseover", event => {
+	if (event.target.classList.contains("menu") == true) {
+		event.target.classList.add("big")
+	}
+	let color = ""
+	switch (event.target.className) {
+		case "menu c1 big":
+			color = "red"
+			break;
+		case "menu c2 big":
+			color = "blue"
+			break;
+		case "menu c3 big":
+			color = "purple"
+			break;
+		case "menu c4 big":
+			color = "black"
+			break;
+		case "menu c5 big":
+			color = "yellow"
+			break;
+		case "menu c6 big":
+			color = "green"
+			break;
+		case "menu c7 big":
+			color = "hotpink"
+			break;
+		case "menu c8 big":
+			color = "coral"
+			break;
+		case "menu c9 big":
+			color = "grey"
+			break;
+		case "menu c10 big":
+			color = "silver"
+			break;
+	}
+	document.getElementById("stories-main").style.backgroundColor = color
+})
+document.getElementById("stories-menu").addEventListener("mouseout", event => {
+	event.target.classList.remove("big")
+})
+
+
+
+
+
 
 
 
@@ -282,16 +392,6 @@ document.getElementById("navbar").addEventListener("click", event => {
 // document.addEventListener("wheel", (event) => {
 // 	console.log(event.target)
 // })
-
-// RESPONSIVE
-
-document.getElementById("navbar-res").addEventListener("click", () => {
-	document.getElementById("navbar-bg").classList.toggle("navbar-show")
-})
-document.getElementById("navbar").addEventListener("click", (event) => {
-	
-})
-
 
 // THIS CODE MUST PLACE IN THE BOTTOM !!!
 // ALBUMS BACKGROUND

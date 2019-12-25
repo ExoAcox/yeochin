@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>YEOCHIN</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap">
     <link rel="stylesheet" href="css/fullpage.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -194,107 +195,22 @@
 
         <div class="section">
             <div id="stories-con">
-                <div id="card-con">
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 1
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 2
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 3
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 4
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 5
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 6
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 7
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 8
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 9
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-flip">
-                            <div class="face front">
-                                Chapter 10
-                            </div>
-                            <div class="face back">
-
-                            </div>
-                        </div>
-                    </div>
+                <div id="stories-menu">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="menu c1">Chapter 1</a></li>
+                        <li><a href="javascript:void(0)" class="menu c2">Chapter 2</a></li>
+                        <li><a href="javascript:void(0)" class="menu c3">Chapter 3</a></li>
+                        <li><a href="javascript:void(0)" class="menu c4">Chapter 4</a></li>
+                        <li><a href="javascript:void(0)" class="menu c5">Chapter 5</a></li>
+                        <li><a href="javascript:void(0)" class="menu c6">Chapter 6</a></li>
+                        <li><a href="javascript:void(0)" class="menu c7">Chapter 7</a></li>
+                        <li><a href="javascript:void(0)" class="menu c8">Chapter 8</a></li>
+                        <li><a href="javascript:void(0)" class="menu c9">Chapter 9</a></li>
+                        <li><a href="javascript:void(0)" class="menu c10">Chapter 10</a></li>
+                    </ul>
+                </div>
+                <div id="stories-main">
+                    
                 </div>
             </div>
         </div>
@@ -325,7 +241,7 @@
                         <span>has passed since their debut on 15 Jan 2015</span><br>
                         <br>
                         2 Full Albums, 9 Mini Albums<br>
-                        2 Japanese Albums, 2 Japanese Singles<br>
+                        2 Japanese Albums, 3 Japanese Singles<br>
                         Total of 65 songs + 16 Japanese songs
                         <br><br>
                         <i>Click icon on the left corner above</i>
@@ -473,13 +389,11 @@
             <a href="#Home"><li>Home</li></a>
             <a href="#Members"><li>Members</li></a>
             <a href="#Stories"><li>Stories</li></a>
-            <a href="#Albums"><li>Albums</li></a>
+            <a href="#Albums"><li class="albums-clk">Albums</li></a>
             <a href="#Awards"><li>Awards</li></a>
             <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
         </ul>
 </div>
-    
-    <div id="navbar-res"><a href="javascript:void(0)" class="navbar-icon"><img src="/img/cd.png" alt="icon"></<img></a></div>
 
     <script src="js/fullpage.min.js"></script>
     <script src="js/typed.js"></script>
@@ -487,7 +401,7 @@
     <script src="js/script.js"></script>
     <script>
         new fullpage('#fullpage', {
-        autoScrolling:true,
+        autoScrolling: true,
         menu: '#navbar-bg, #navbar, #loading, #navbar-res',
         lockAnchors: false,
         anchors:['Home', 'Members', 'Stories', 'Albums', 'Awards', 'About_Me'],
@@ -496,7 +410,6 @@
         navigationPosition: 'right',
         controlArrows: false,
         loopBottom: false,
-        loopHorizontal: true
         });
         fullpage_api.setAllowScrolling(true);
     </script>
