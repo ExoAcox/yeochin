@@ -1,11 +1,4 @@
 
-
-document.getElementById("navbar").addEventListener("click", (event) => {
-	if (event.target.className == "responsive") {
-		document.querySelector(".responsive").classList.add("navbar-show")
-	}
-})
-
 // HOME ANIMATION
 
 window.addEventListener("load", () => {
@@ -28,31 +21,6 @@ window.addEventListener("load", () => {
 	if (window.location.hash != "" && window.location.hash != "#Home") {
 		document.getElementById("navbar").style.transition = ".5s .75s"
 	}
-
-	// BACKGROUND SLIDE
-
-	// const slide_bg = document.getElementsByClassName("slide-bg")
-	// const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
-	// const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
-	// for (x = 1; x <= slide_bg.length; x++) {
-	// 	let xBG = ""
-	// 	let count = x
-	// 	for (y = 0; y < xScreen; y++) {
-	// 		for (z = 0; z < 4; z++) {
-	// 			if (count > 4) {count = 1}
-	// 			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
-	// 			count++
-	// 		}
-	// 	}
-	// 	count = x
-	// 	for (z = 0; z < xxScreen; z++) {
-	// 		if (count > 4) {count = 1}
-	// 		xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
-	// 		count++
-	// 	}
-	// 	slide_bg[x - 1].innerHTML = xBG
-	// }
-
 
 
 
@@ -113,7 +81,55 @@ const pop = "pop" + i;
 	}
 }})
 
+
+// --- STORIES ---
+
+// MENU HOVER ---
+
+let xTarget = 0
+document.getElementById("stories-menu").addEventListener("mouseover", event => {
+	switch (event.target.text) {
+		case "Chapter 1": color = "red"; x = 0; break;
+		case "Chapter 2": color = "blue"; x = 1; break;
+		case "Chapter 3": color = "purple"; x = 2; break;
+		case "Chapter 4": color = "brown"; x = 3; break;
+		case "Chapter 5": color = "yellow"; x = 4; break;
+		case "Chapter 6": color = "green"; x = 5; break;
+		case "Chapter 7": color = "hotpink"; x = 6; break;
+		case "Chapter 8": color = "coral"; x = 7; break;
+		case "Chapter 9": color = "grey"; x = 8; break;
+		case "Chapter 10": color = "silver"; x = 9; break;
+	}
+	document.getElementById("stories-main").style.backgroundColor = color
+	const chapter = document.getElementsByClassName("chapter")
+	chapter[xTarget].classList.remove("desc-show")
+	chapter[x].classList.add("desc-show")
+	if (event.target.classList.contains("menu") == true) {
+		event.target.classList.add("big")
+	}
+})
+document.getElementById("stories-menu").addEventListener("mouseout", event => {
+	event.target.classList.remove("big")
+	if (event.target.classList.contains("menu") == true) {
+		switch (event.target.text) {
+			case "Chapter 1": x = 0; break;
+			case "Chapter 2": x = 1; break;
+			case "Chapter 3": x = 2; break;
+			case "Chapter 4": x = 3; break;
+			case "Chapter 5": x = 4; break;
+			case "Chapter 6": x = 5; break;
+			case "Chapter 7": x = 6; break;
+			case "Chapter 8": x = 7; break;
+			case "Chapter 9": x = 8; break;
+			case "Chapter 10": x = 9; break;
+		}
+		xTarget = x
+	}
+})
+
+
 // --- ALBUMS ---
+
 // ALBUMS DATE ---
 
 const debut = new Date(2015, 0, 14, 22)
@@ -149,34 +165,13 @@ function countdown(cnd) {
 		xDay++
 	}, cnd[stop][0])
 }
-// function albumsSlide() {
-// 	const slide_bg = document.getElementsByClassName("slide-bg")
-// 	const xScreen = Math.ceil(window.innerWidth / (window.innerHeight * 4))
-// 	const xxScreen = Math.ceil(window.innerWidth / window.innerHeight)
-// 	for (x = 1; x <= slide_bg.length; x++) {
-// 		let xBG = ""
-// 		let count = x
-// 		for (y = 0; y < xScreen; y++) {
-// 			for (z = 0; z < 4; z++) {
-// 				if (count > 4) {count = 1}
-// 				xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
-// 				count++
-// 			}
-// 		}
-// 		count = x
-// 		for (z = 0; z < xxScreen; z++) {
-// 			if (count > 4) {count = 1}
-// 			xBG += `<div style="background-image: url('/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
-// 			count++
-// 		}
-// 		slide_bg[x - 1].innerHTML = xBG
-// 	}
-// }
+
+// ALBUMS SLIDE
 
 window.addEventListener("load", () => {
 	if (window.location.hash == "#Albums") {
 		setTimeout(() => {
-			countdown(cnd);
+			if (xDay == 0) {countdown(cnd)};
 			const slide = document.getElementsByClassName("slide-bg")
 			for (x = 0; x < slide.length; x++) {
 			slide[x].classList.add("slide-on")
@@ -209,17 +204,7 @@ window.addEventListener("load", () => {
 	albumsSlide()
 })
 
-document.getElementById("navbar").addEventListener("click", event => {
-	if (event.target.className == "albums-clk") {
-		setTimeout(() => {
-			countdown(cnd);
-			const slide = document.getElementsByClassName("slide-bg")
-			for (x = 0; x < slide.length; x++) {
-			slide[x].classList.add("slide-on")
-			}
-		}, 500)
-	}
-})
+// ALBUMS ITUNES
 
 const itunes = document.getElementById("albums-all").querySelectorAll("iframe")
 for (x = 0; x < itunes.length; x++) {
@@ -228,7 +213,6 @@ for (x = 0; x < itunes.length; x++) {
 	itunes[x].setAttribute("height", "450");
 	itunes[x].setAttribute("style", "width:100%;max-width:700px;overflow:hidden;background:transparent;");
 	itunes[x].setAttribute("sandbox", "allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation");
-	let source = ""
 	switch (x) {
 		case 0:
 			source = "https://embed.music.apple.com/us/album/gfriend-1st-mini-album-season-of-glass-ep/1305056370?app=music"
@@ -267,6 +251,13 @@ for (x = 0; x < itunes.length; x++) {
 	itunes[x].setAttribute("src", source)
 }
 
+// ALBUMS BACKGROUND
+
+const albums_bg = document.getElementsByClassName("albums-bg")
+for (x = 0; x < albums_bg.length; x++) {
+	albums_bg[x].style.backgroundImage = "url(../img/albums/" + (x + 1) + ".jpg)"
+}
+
 // ALBUMS NAVBAR
 
 const albums = document.getElementById("albums-navbar").querySelectorAll("a")
@@ -294,56 +285,26 @@ document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 	document.getElementById("albums-navbar").classList.remove("navbar-show")
 })
 
+// ALBUMS TRIGGER
 
-// --- STORIES ---
-
-// MENU HOVER ---
-
-document.getElementById("stories-menu").addEventListener("mouseover", event => {
-	if (event.target.classList.contains("menu") == true) {
-		event.target.classList.add("big")
-	}
-	let color = ""
-	switch (event.target.className) {
-		case "menu c1 big":
-			color = "red"
-			break;
-		case "menu c2 big":
-			color = "blue"
-			break;
-		case "menu c3 big":
-			color = "purple"
-			break;
-		case "menu c4 big":
-			color = "black"
-			break;
-		case "menu c5 big":
-			color = "yellow"
-			break;
-		case "menu c6 big":
-			color = "green"
-			break;
-		case "menu c7 big":
-			color = "hotpink"
-			break;
-		case "menu c8 big":
-			color = "coral"
-			break;
-		case "menu c9 big":
-			color = "grey"
-			break;
-		case "menu c10 big":
-			color = "silver"
-			break;
-	}
-	document.getElementById("stories-main").style.backgroundColor = color
+function slideMove() {
+	setTimeout(() => {
+		if (xDay == 0) {countdown(cnd)};
+		const slide = document.getElementsByClassName("slide-bg")
+		for (x = 0; x < slide.length; x++) {
+		slide[x].classList.add("slide-on")
+		}
+	}, 500)
+}
+document.getElementById("navbar").addEventListener("click", event => {
+	if (event.target.className == "albums-clk") {slideMove()}
 })
-document.getElementById("stories-menu").addEventListener("mouseout", event => {
-	event.target.classList.remove("big")
+document.addEventListener("wheel", () => {
+	if (window.location.hash == "#Albums") {slideMove()}
 })
-
-
-
+document.addEventListener("keydown", event => {
+	if (window.location.hash == "#Stories" && event.keyCode == 40) {slideMove()}
+})
 
 
 
@@ -367,7 +328,7 @@ function fans() {
 	strings: ["STAN TALENT ?", "STAN GFRIEND !"],
 	typeSpeed: 80,
 	backSpeed: 80,
-	startDelay: 1000,
+	startDelay: 500,
 	backDelay: 500,
 	smartBackspace: true,
 	loop: false,
@@ -375,20 +336,18 @@ function fans() {
 })}
 function typed() {
 	document.getElementById("typed-on").innerHTML = "buddy()"
-}
-function credit() {
 	document.getElementById("credit-head").classList.add("credit-show")
 }
-document.getElementById("awards-con").addEventListener("wheel", () => {
-	if (window.location.hash == "#About_Me") {typed(); credit()}
+
+document.addEventListener("wheel", () => {
+	if (window.location.hash == "#About_Me") {typed()}
 })
 document.addEventListener("keydown", event => {
-	if (window.location.hash == "#Awards" && event.keyCode == 40) {typed(); credit()}
+	if (window.location.hash == "#Awards" && event.keyCode == 40) {typed()}
 })
 document.getElementById("navbar").addEventListener("click", event => {
-	if (event.target.className == "aboutme-clk") {typed(); credit()}
+	if (event.target.className == "aboutme-clk") {typed()}
 })
-
 // document.addEventListener("wheel", (event) => {
 // 	console.log(event.target)
 // })
@@ -396,7 +355,3 @@ document.getElementById("navbar").addEventListener("click", event => {
 // THIS CODE MUST PLACE IN THE BOTTOM !!!
 // ALBUMS BACKGROUND
 
-const albums_bg = document.getElementsByClassName("albums-bg")
-for (x = 0; x <= albums_bg.length; x++) {
-	albums_bg[x].style.backgroundImage = "url(../img/albums/" + (x + 1) + ".jpg)"
-}
