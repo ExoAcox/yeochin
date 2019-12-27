@@ -6,7 +6,8 @@ window.addEventListener("load", () => {
 	const text = document.getElementById("diamond-con").querySelectorAll("span")
 	const text2 = document.getElementById("text-con").querySelectorAll("span")
 	document.getElementById("loading").classList.add("load-off")
-	document.getElementById("navbar").classList.add("navbar-show")
+	document.getElementById("navbar").classList.add("show")
+	document.getElementById("fp-nav").classList.add("show")
 	document.getElementById("text-con").classList.add("con-fadeout")
 	for (x = 0; x < diamond.length; x++) {
 		diamond[x].classList.add("diamond-anim");
@@ -20,7 +21,16 @@ window.addEventListener("load", () => {
 	}
 	if (window.location.hash != "" && window.location.hash != "#Home") {
 		document.getElementById("navbar").style.transition = ".5s .75s"
+		document.getElementById("fp-nav").style.transition = ".5s .75s"
 	}
+
+
+
+	document.getElementById("awards-bg").style.height = `${3000 + window.innerHeight}px`
+	document.getElementById("awards-bg").classList.add("move")
+
+
+
 
 // ABOUT ME TYPING START
 
@@ -84,14 +94,16 @@ const pop = "pop" + i;
 // BACKGROUND CHANGE
 
 function backHide() {
+	document.getElementById("fp-nav").style.transition = ".3s"
 	document.getElementById("stories-bg").style.top = null
 	document.getElementById("back").classList.remove("back-show")
-	document.getElementById("fp-nav").classList.remove("hide")
+	document.getElementById("fp-nav").classList.add("show")
 }
 document.getElementById("stories-more").querySelector("a").addEventListener("click", () => {
+	document.getElementById("fp-nav").style.transition = ".3s"
 	document.getElementById("stories-bg").style.top = 0
 	document.getElementById("back").classList.add("back-show")
-	document.getElementById("fp-nav").classList.add("hide")
+	document.getElementById("fp-nav").classList.remove("show")
 })
 document.getElementById("back").querySelector("a").addEventListener("click", () => {
 	backHide()
@@ -324,6 +336,17 @@ window.addEventListener("hashchange", () => {
 		else {xAlbums(1200)}
 	}
 })
+
+// AWARDS
+
+document.getElementById("awards-bg").addEventListener("transitionend", () => {
+	document.getElementById("awards-text").classList.add("hide")
+	document.getElementById("awards-home").classList.add("show")
+})
+
+
+
+
 
 
 // ABOUT ME
