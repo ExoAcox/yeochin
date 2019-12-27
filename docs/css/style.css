@@ -500,6 +500,59 @@ a:hover {
 }
 
 
+#stories-bg {
+    position: absolute;
+    top: 100%;
+    background-color: salmon;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transition: .3s;
+}
+#stories-bg::-webkit-scrollbar {
+    display: none;
+}
+#fp-nav {
+    transition: .3s;
+}
+#fp-nav.hide {
+    margin-right: -50px;
+}
+#navbar-bg {
+    width: 100%;
+    height: 64px;
+    background-color: salmon;
+}
+#back {
+    position: absolute;
+    top: -50px;
+    transition: .3s;
+    height: 26px;
+}
+#back a {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+#back img {
+    height: 20px;
+    margin-left: 25px;
+    transform: translateY(3px);
+}
+#back span {
+    display: inline-block;
+    line-height: 26px;
+}
+#back.back-show {
+    top: 19px;
+}
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+}
+
 /* --- ALBUMS --- */
 
 .albums-con {

@@ -22,9 +22,6 @@ window.addEventListener("load", () => {
 		document.getElementById("navbar").style.transition = ".5s .75s"
 	}
 
-
-
-
 // ABOUT ME TYPING START
 
 	if (window.location.hash == "#About_Me") {
@@ -84,22 +81,57 @@ const pop = "pop" + i;
 
 // --- STORIES ---
 
+// BACKGROUND CHANGE
+
+function backHide() {
+	document.getElementById("stories-bg").style.top = null
+	document.getElementById("back").classList.remove("back-show")
+	document.getElementById("fp-nav").classList.remove("hide")
+}
+document.getElementById("stories-more").querySelector("a").addEventListener("click", () => {
+	document.getElementById("stories-bg").style.top = 0
+	document.getElementById("back").classList.add("back-show")
+	document.getElementById("fp-nav").classList.add("hide")
+})
+document.getElementById("back").querySelector("a").addEventListener("click", () => {
+	backHide()
+})
+document.getElementById("stories-clk").addEventListener("click", () => {
+	backHide()
+})
+window.addEventListener("hashchange", () => {
+	backHide()
+})
+
 // MENU HOVER ---
 
+function storiesCase() {
+	switch (event.target.text) {
+		case "Chapter 1":
+			x = 0; color = "red";  break;
+		case "Chapter 2":
+			x = 1; color = "blue";  break;
+		case "Chapter 3":
+			x = 2; color = "purple";  break;
+		case "Chapter 4":
+			x = 3; color = "brown";  break;
+		case "Chapter 5":
+			x = 4; color = "yellow";  break;
+		case "Chapter 6":
+			x = 5; color = "green";  break;
+		case "Chapter 7":
+			x = 6; color = "hotpink";  break;
+		case "Chapter 8":
+			x = 7; color = "coral";  break;
+		case "Chapter 9":
+			x = 8; color = "grey";  break;
+		case "Chapter 10":
+			x = 9; color = "silver";  break;
+	}
+}
 let xTarget = 0
 document.getElementById("stories-menu").addEventListener("mouseover", event => {
-	switch (event.target.text) {
-		case "Chapter 1": color = "red"; x = 0; break;
-		case "Chapter 2": color = "blue"; x = 1; break;
-		case "Chapter 3": color = "purple"; x = 2; break;
-		case "Chapter 4": color = "brown"; x = 3; break;
-		case "Chapter 5": color = "yellow"; x = 4; break;
-		case "Chapter 6": color = "green"; x = 5; break;
-		case "Chapter 7": color = "hotpink"; x = 6; break;
-		case "Chapter 8": color = "coral"; x = 7; break;
-		case "Chapter 9": color = "grey"; x = 8; break;
-		case "Chapter 10": color = "silver"; x = 9; break;
-	}
+	storiesCase()
 	document.getElementById("stories-main").style.backgroundColor = color
 	const chapter = document.getElementsByClassName("chapter")
 	chapter[xTarget].classList.remove("desc-show")
@@ -111,18 +143,7 @@ document.getElementById("stories-menu").addEventListener("mouseover", event => {
 document.getElementById("stories-menu").addEventListener("mouseout", event => {
 	event.target.classList.remove("big")
 	if (event.target.classList.contains("menu") == true) {
-		switch (event.target.text) {
-			case "Chapter 1": x = 0; break;
-			case "Chapter 2": x = 1; break;
-			case "Chapter 3": x = 2; break;
-			case "Chapter 4": x = 3; break;
-			case "Chapter 5": x = 4; break;
-			case "Chapter 6": x = 5; break;
-			case "Chapter 7": x = 6; break;
-			case "Chapter 8": x = 7; break;
-			case "Chapter 9": x = 8; break;
-			case "Chapter 10": x = 9; break;
-		}
+		storiesCase()
 		xTarget = x
 	}
 })
@@ -274,7 +295,6 @@ for (x = 0; x < hover.length; x++) {
 		hover[x].innerHTML = `<div id="tftmn">${hover[x].previousElementSibling.getAttribute("alt")}</div>`
 	}
 }
-
 document.getElementById("albums-icon").addEventListener("mouseover", () => {
 	document.getElementById("albums-navbar").classList.add("navbar-show")
 })
@@ -287,27 +307,23 @@ document.getElementById("albums-navbar").addEventListener("mouseout", () => {
 
 // ALBUMS TRIGGER
 
-function slideMove() {
+let albumsValue = 0
+document.getElementById("albums-clk").addEventListener("click", () => {albumsValue++})
+function xAlbums(x) {
 	setTimeout(() => {
 		if (xDay == 0) {countdown(cnd)};
 		const slide = document.getElementsByClassName("slide-bg")
 		for (x = 0; x < slide.length; x++) {
 		slide[x].classList.add("slide-on")
 		}
-	}, 500)
+	}, x)
 }
-document.getElementById("navbar").addEventListener("click", event => {
-	if (event.target.className == "albums-clk") {slideMove()}
+window.addEventListener("hashchange", () => {
+	if (window.location.hash == "#Albums") {
+		if (albumsValue == 0) {xAlbums(500)}
+		else {xAlbums(1200)}
+	}
 })
-document.addEventListener("wheel", () => {
-	if (window.location.hash == "#Albums") {slideMove()}
-})
-document.addEventListener("keydown", event => {
-	if (window.location.hash == "#Stories" && event.keyCode == 40) {slideMove()}
-})
-
-
-
 
 
 // ABOUT ME
@@ -338,7 +354,6 @@ function typed() {
 	document.getElementById("typed-on").innerHTML = "buddy()"
 	document.getElementById("credit-head").classList.add("credit-show")
 }
-
 document.addEventListener("wheel", () => {
 	if (window.location.hash == "#About_Me") {typed()}
 })
@@ -348,10 +363,4 @@ document.addEventListener("keydown", event => {
 document.getElementById("navbar").addEventListener("click", event => {
 	if (event.target.className == "aboutme-clk") {typed()}
 })
-// document.addEventListener("wheel", (event) => {
-// 	console.log(event.target)
-// })
-
-// THIS CODE MUST PLACE IN THE BOTTOM !!!
-// ALBUMS BACKGROUND
 

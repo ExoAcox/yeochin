@@ -209,10 +209,9 @@
                 </div>
                 <div id="stories-main">
                     <div id="stories-desc">
-                        <div class="chapter" id="c1">
+                        <div class="chapter desc-show" id="c1">
                             <h3>The Beginning (<i>Glass Bead Era</i>)</h3>
                             <p>Unlike Twice, Red Velvet, Blackpink and other girlgroups who has debuted on big agency or have an senior artist who famous before. GFRIEND debuted from unknown agency called Source Music, they start from bottom and have able to compete in top tier girlgroup.</p>
-                            <br>
                         </div>
                         <div class="chapter" id="c2">
                             <h3>Never Give Up! (<i>Me Gustas Tu Era</i>)</h3>
@@ -220,21 +219,38 @@
                         </div>
                         <div class="chapter" id="c3">
                             <h3>Rise of Popularity (<i>Rough Era</i>)</h3>
-                            <p>Imagine, there is a girlgroup who slipped 8x times on a single stage performance. And they still manage to finish their performance.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis sunt ullam excepturi fugit omnis nulla vel quidem vitae ducimus dolore.</p>
                         </div>
                         <div class="chapter" id="c4">
                             <h3>The Golden Era (<i>Navillera Era</i>)</h3>
-                            <p>Imagine, there is a girlgroup who slipped 8x times on a single stage performance. And they still manage to finish their performance.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta harum libero minima aliquid adipisci nobis nihil eaque in quaerat quam.</p>
                         </div>
-                        <div class="chapter" id="c5"></div>
-                        <div class="chapter" id="c6"></div>
+                        <div class="chapter" id="c5">
+                            <h3>Chic Concept (<i>Fingertip Era</i>)</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rerum doloribus reiciendis nesciunt vero aperiam iste recusandae placeat similique voluptas.</p>
+                        </div>
+                        <div class="chapter" id="c6">
+                            <h3>Summer Time (<i>Love Whisper Era</i>)</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet architecto libero voluptate accusamus nobis sint quaerat reprehenderit velit dolorem neque.</p>
+                        </div>
                         <div class="chapter" id="c7"></div>
                         <div class="chapter" id="c8"></div>
                         <div class="chapter" id="c9"></div>
                         <div class="chapter" id="c10"></div>
                         <div id="stories-more">
-                            Click for more detail
+                            <a href="javascript:void(0)">Click for more detail</a>
                         </div>
+                    </div>
+                </div>
+                <div id="stories-bg">
+                    <div id="back">
+                        <a href="javascript:void(0)">
+                            <img src="/img/back.png" alt="back">  <span>Back</span>
+                        </a>
+                    </div>
+                    <div id="navbar-bg"></div>
+                    <div id="content"><br><br><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aut eligendi autem voluptatibus accusantium amet doloribus, nihil quasi numquam optio tempora perspiciatis fugiat! Tempora magni sed minus voluptate molestiae ducimus, fugiat cupiditate dolor quibusdam quaerat vitae sapiente! Officiis assumenda magni voluptatum debitis officia ex quam delectus at, natus fugiat reprehenderit beatae nam reiciendis culpa repellat voluptatibus ut omnis, enim neque vitae magnam, laborum quos? Nobis modi nam atque distinctio animi natus vel libero rem velit earum optio possimus ex dolor voluptatem delectus reprehenderit sunt minus, harum nemo architecto obcaecati eum magni repellat. Atque earum sapiente doloremque? Sint, eos at. Ipsum aperiam voluptate dolorum eaque, asperiores porro consequuntur? Voluptatem consectetur maiores corrupti sunt ab amet. Hic aut facere corporis repudiandae maxime eos expedita delectus. Architecto ratione minus, repellat deleniti voluptates alias illum praesentium! Quae beatae fugiat aliquam amet rerum, dignissimos odit ipsam, dolor corporis rem autem voluptates perferendis assumenda eum. Laudantium aperiam perspiciatis inventore. Reiciendis accusantium dolor similique fugit quisquam at ullam autem cum animi, saepe repudiandae, tempora reprehenderit rem ratione consectetur, molestiae id praesentium nesciunt commodi? Tempora corrupti, accusantium accusamus quis quasi quo eum possimus, aspernatur dicta magnam facere iure pariatur molestiae, necessitatibus voluptatibus? Obcaecati in excepturi magnam provident esse.
                     </div>
                 </div>
             </div>
@@ -409,16 +425,14 @@
 
         <!-- NAVBAR -->
         
-    <div id="navbar-bg">
-        <ul id="navbar">
-            <a href="#Home"><li>Home</li></a>
-            <a href="#Members"><li>Members</li></a>
-            <a href="#Stories"><li>Stories</li></a>
-            <a href="#Albums"><li class="albums-clk">Albums</li></a>
-            <a href="#Awards"><li>Awards</li></a>
-            <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
-        </ul>
-</div>
+    <ul id="navbar">
+        <a href="#Home"><li>Home</li></a>
+        <a href="#Members"><li>Members</li></a>
+        <a href="#Stories" id="stories-clk"><li>Stories</li></a>
+        <a href="#Albums"><li id="albums-clk">Albums</li></a>
+        <a href="#Awards"><li>Awards</li></a>
+        <a href="#About_Me"><li class="aboutme-clk">About Me</li></a>
+    </ul>
 
     <script src="js/fullpage.min.js"></script>
     <script src="js/typed.js"></script>
@@ -427,10 +441,10 @@
     <script>
         new fullpage('#fullpage', {
         autoScrolling: true,
-        menu: '#navbar-bg, #navbar, #loading, #navbar-res',
+        menu: '#navbar, #loading, #back',
         lockAnchors: false,
         anchors:['Home', 'Members', 'Stories', 'Albums', 'Awards', 'About_Me'],
-        normalScrollElements: '#albums-navbar',
+        normalScrollElements: '#albums-navbar, #stories-bg',
         navigation: true,
         navigationPosition: 'right',
         controlArrows: false,
