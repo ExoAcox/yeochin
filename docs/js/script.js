@@ -339,14 +339,26 @@ window.addEventListener("hashchange", () => {
 
 // AWARDS
 
-document.getElementById("awards-bg").addEventListener("transitionend", () => {
-	document.getElementById("awards-text").classList.add("hide")
-	document.getElementById("awards-home").classList.add("show")
+// document.getElementById("awards-bg").addEventListener("transitionend", () => {
+// 	document.getElementById("awards-text").classList.add("hide")
+// 	document.getElementById("awards-home").classList.add("show")
+// })
+
+
+
+const card = document.getElementsByClassName("card")
+window.addEventListener("load", () => {
+	setTimeout(() => {
+		card[0].classList.add("show")
+	}, 1000)
 })
-
-
-
-
+let index = 1
+for (x = 0; x < card.length; x++) {
+	card[x].addEventListener("transitionend", () => {
+		card[index].classList.add("show")
+		index++
+	})
+}
 
 
 
