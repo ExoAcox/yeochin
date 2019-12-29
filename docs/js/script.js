@@ -349,6 +349,29 @@ document.getElementById("awards-bg").addEventListener("transitionend", () => {
 
 
 
+
+
+// document.getElementById("awards-menu").addEventListener("click", event => {
+// 	switch (event.target.text) {
+// 		case "Front":
+// 			x = "front"; break;
+// 		case "Back":
+// 			x = "back"; break;
+// 		case "Left":
+// 			x = "left"; break;
+// 		case "Right":
+// 			x = "right"; break;
+// 		case "Top":
+// 			x = "top"; break;
+// 		case "Bottom":
+// 			x = "bottom"; break;
+// 	}
+// 	document.getElementById("cube").setAttribute("class", x)
+// })
+
+
+
+
 // ABOUT ME
 
 function buddy() {
