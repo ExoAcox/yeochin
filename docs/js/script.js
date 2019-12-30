@@ -345,15 +345,28 @@ window.addEventListener("hashchange", () => {
 // })
 
 
+const mushow = document.getElementById("mushow-card")
+const front = document.getElementById("card-front")
+const back = document.getElementById("card-back")
+const flip = document.getElementById("flip")
 
+let index = 1
 const card = document.getElementsByClassName("card")
 window.addEventListener("load", () => {
 	setTimeout(() => {
 		card[0].classList.add("show")
+		mushow.style.transition = "1.5s"
 	}, 1000)
+	setTimeout(() => {
+		mushow.classList.add("flip")
+	}, 7500)
+	setTimeout(() => {
+		card[7].classList.add("show")
+		mushow.style.transition = null
+		index++
+	}, 9000)
 })
-let index = 1
-for (x = 0; x < card.length; x++) {
+for (x = 0; x < 6; x++) {
 	card[x].addEventListener("transitionend", () => {
 		card[index].classList.add("show")
 		index++
@@ -361,7 +374,32 @@ for (x = 0; x < card.length; x++) {
 }
 
 
+for (x = 7; x < 13; x++) {
+	card[x].addEventListener("transitionend", () => {
+		card[index].classList.add("show")
+		index++
+	})
+}
 
+flip.addEventListener("click", () => {
+	mushow.style.transition = "1.5s"
+	mushow.classList.toggle("flip")
+})
+flip.addEventListener("mouseout", () => {
+	mushow.style.transition = null
+})
+front.addEventListener("mouseover", () => {
+	mushow.classList.add("flat")
+})
+front.addEventListener("mouseout", () => {
+	mushow.classList.remove("flat")
+})
+back.addEventListener("mouseover", () => {
+	mushow.classList.add("flatb")
+})
+back.addEventListener("mouseout", () => {
+	mushow.classList.remove("flatb")
+})
 
 // document.getElementById("awards-menu").addEventListener("click", event => {
 // 	switch (event.target.text) {
