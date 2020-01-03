@@ -221,14 +221,14 @@ window.addEventListener("load", () => {
 			for (y = 0; y < xScreen; y++) {
 				for (z = 0; z < 4; z++) {
 					if (count > 4) {count = 1}
-					xBG += `<div style="background-image: url('/yeochin/docs/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
+					xBG += `<div style="background-image: url('img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`;
 					count++
 				}
 			}
 			count = x
 			for (z = 0; z < xxScreen; z++) {
 				if (count > 4) {count = 1}
-				xBG += `<div style="background-image: url('/yeochin/docs/img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
+				xBG += `<div style="background-image: url('img/albums/main/${count}.jpg');width: ${window.innerHeight}px"></div>`
 				count++
 			}
 			slide_bg[x - 1].innerHTML = xBG
