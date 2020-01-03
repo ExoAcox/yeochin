@@ -288,7 +288,7 @@ for (x = 0; x < itunes.length; x++) {
 
 const albums_bg = document.getElementsByClassName("albums-bg")
 for (x = 0; x < albums_bg.length; x++) {
-	albums_bg[x].style.backgroundImage = "url(/img/albums/" + (x + 1) + ".jpg)"
+	albums_bg[x].style.backgroundImage = "url(../img/albums/" + (x + 1) + ".jpg)"
 }
 
 // ALBUMS NAVBAR
@@ -297,7 +297,7 @@ const albums = document.getElementById("albums-navbar").querySelectorAll("a")
 const albums2 = document.getElementById("albums-navbar").querySelectorAll("img")
 for (x = 0; x < albums.length; x++) {
 	albums[x].setAttribute("href", "#Albums/" + (x + 1));
-	albums2[x].setAttribute("src", "/img/albums/" + (x + 1) + ".jpg")
+	albums2[x].setAttribute("src", "../img/albums/" + (x + 1) + ".jpg")
 }
 const hover = document.getElementsByClassName("hover")
 for (x = 0; x < hover.length; x++) {
