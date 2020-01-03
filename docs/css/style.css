@@ -945,7 +945,6 @@ a:hover {
     right: 130px;
     opacity: 0;
     font-size: 30px;
-    font-weight: bold;
     border-radius: 10px;
     padding: 10px 15px;
     background-color: hotpink;
@@ -954,6 +953,7 @@ a:hover {
 #flip:hover {
     background-color: white;
     color: hotpink;
+    font-weight: bold;
 }
 #flip.show {
     right: 30px;
