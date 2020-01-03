@@ -869,6 +869,7 @@ a:hover {
     color: black;
     border-radius: 7px;
     left: -400px;
+    transform: translateZ(0px);
     transition: .7s ease left;
 }
 #card-front .card:nth-child(5) span:nth-child(2) {
@@ -886,7 +887,7 @@ a:hover {
     width: 200%;
     height: 100%;
     background-color: darkslateblue;
-    transform: translate(-100%);
+    transform: translateX(-100%) translateZ(0px);
 }
 .card span {
     position: absolute;
@@ -907,7 +908,7 @@ a:hover {
 }
 #mushow-text span:nth-child(1) {
     opacity: 0;
-    right: 100%;
+    right: 500px;
     transition: 1.5s 1s;
 }
 #mushow-text span.show:nth-child(1) {
