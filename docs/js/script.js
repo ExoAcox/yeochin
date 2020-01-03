@@ -349,44 +349,44 @@ const mushow = document.getElementById("mushow-card")
 const front = document.getElementById("card-front")
 const back = document.getElementById("card-back")
 const flip = document.getElementById("flip")
-
-let index = 1
 const card = document.getElementsByClassName("card")
-window.addEventListener("load", () => {
+let index = 1
+
+function cardStart() {
 	setTimeout(() => {
 		card[0].classList.add("show")
 		mushow.style.transition = "1.5s"
-	}, 1000)
+	}, 7500)
 	setTimeout(() => {
 		mushow.classList.add("flip")
-	}, 7500)
+	}, 13000)
 	setTimeout(() => {
 		card[7].classList.add("show")
 		mushow.style.transition = null
 		index++
-	}, 9000)
-})
+	}, 14500)
+}
 for (x = 0; x < 6; x++) {
 	card[x].addEventListener("transitionend", () => {
 		card[index].classList.add("show")
 		index++
 	})
 }
-
-
 for (x = 7; x < 13; x++) {
 	card[x].addEventListener("transitionend", () => {
 		card[index].classList.add("show")
 		index++
 	})
 }
-
 flip.addEventListener("click", () => {
 	mushow.style.transition = "1.5s"
 	mushow.classList.toggle("flip")
 })
 flip.addEventListener("mouseout", () => {
 	mushow.style.transition = null
+})
+flip.addEventListener("transitionend", () => {
+	flip.style.transition = ".1s"
 })
 front.addEventListener("mouseover", () => {
 	mushow.classList.add("flat")
@@ -401,24 +401,30 @@ back.addEventListener("mouseout", () => {
 	mushow.classList.remove("flatb")
 })
 
-// document.getElementById("awards-menu").addEventListener("click", event => {
-// 	switch (event.target.text) {
-// 		case "Front":
-// 			x = "front"; break;
-// 		case "Back":
-// 			x = "back"; break;
-// 		case "Left":
-// 			x = "left"; break;
-// 		case "Right":
-// 			x = "right"; break;
-// 		case "Top":
-// 			x = "top"; break;
-// 		case "Bottom":
-// 			x = "bottom"; break;
-// 	}
-// 	document.getElementById("cube").setAttribute("class", x)
-// })
+// AWARDS TRIGGER
 
+window.addEventListener("load", () => {
+	if (window.location.hash == "#Awards") {
+		cardStart()
+		const span = document.getElementById("mushow-text").querySelectorAll("span")
+		for (x = 0; x < span.length; x++) {
+			span[x].classList.add("show")
+		}
+		document.getElementById("mushow-card").classList.add("show")
+		document.getElementById("mushow-text").querySelector("a").classList.add("show")
+	}
+})
+window.addEventListener("hashchange", () => {
+	if (window.location.hash == "#Awards") {
+		cardStart()
+		const span = document.getElementById("mushow-text").querySelectorAll("span")
+		for (x = 0; x < span.length; x++) {
+			span[x].classList.add("show")
+		}
+		document.getElementById("mushow-card").classList.add("show")
+		document.getElementById("mushow-text").querySelector("a").classList.add("show")
+	}
+})
 
 
 

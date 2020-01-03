@@ -797,6 +797,7 @@ a:hover {
 }
 #mushow-text {
     grid-column: span 7;
+    position: relative;
     font-size: 30px;
     text-align: left;
     font-family: 'Roboto', sans-serif;
@@ -815,10 +816,14 @@ a:hover {
     grid-column: span 3;
     width: 90%;
     height: 90%;
+    top: 150%;
     position: relative;
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateX(-5deg) rotateY(-10deg);
-    transition: .3s;
+    transition: .3s transform, 1.5s 3.5s top;
+}
+#mushow-card.show {
+    top: 0;
 }
 #mushow-card.flip {
     transform: perspective(1000px) rotateX(-5deg) rotateY(172.5deg) translate(-38px);
@@ -864,7 +869,6 @@ a:hover {
     color: black;
     border-radius: 7px;
     left: -400px;
-    transform: translateZ(5px);
     transition: .7s ease left;
 }
 #card-front .card:nth-child(5) span:nth-child(2) {
@@ -879,7 +883,7 @@ a:hover {
 }
 .card-wall {
     position: absolute;
-    width: 120%;
+    width: 200%;
     height: 100%;
     background-color: darkslateblue;
     transform: translate(-100%);
@@ -898,6 +902,63 @@ a:hover {
     left: 50%;
 }
 
+#mushow-text span {
+    position: relative;
+}
+#mushow-text span:nth-child(1) {
+    opacity: 0;
+    right: 100%;
+    transition: 1.5s 1s;
+}
+#mushow-text span.show:nth-child(1) {
+    opacity: 1;
+    right: 0;
+}
+#mushow-text span:nth-child(1n+1) {
+    opacity: 0;
+    top: 50px;
+}
+#mushow-text span.show:nth-child(1n+1) {
+    opacity: 1;
+    top: 0;
+}
+#mushow-text span:nth-child(2) {
+    transition: 1s 3s;
+}
+#mushow-text span:nth-child(3) {
+    transition: 1s 5s;
+}
+#mushow-text span:nth-child(4) {
+    transition: 1s 7s;
+}
+#mushow-text span:nth-child(5) {
+    transition: 1s 9s;
+}
+#mushow-text span:nth-child(6) {
+    transition: 1s 11s;
+}
+#mushow-text span:nth-child(7) {
+    transition: 1s 15.5s;
+}
+#flip {
+    position: absolute;
+    right: 130px;
+    opacity: 0;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: hotpink;
+    transition: 1s 19.5s;
+}
+#flip:hover {
+    background-color: white;
+    color: hotpink;
+}
+#flip.show {
+    right: 30px;
+    opacity: 1;
+}
 
 
 
