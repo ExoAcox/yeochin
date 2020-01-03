@@ -426,7 +426,7 @@ a:hover {
     transition: 1s;
     position: absolute;
     opacity: 0;
-    bottom: 0px;
+    bottom: -580px;
     right: 100px;
 }
 #members-popup img.popup {
